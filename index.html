@@ -3,456 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#070b1c">
-<title>Una sorpresa para ti ✦</title>
-
+<meta name="theme-color" content="#071b13">
+<title>Una sorpresa para vos 💚</title>
 <style>
 :root {
-  --bg: #070b1c;
-  --blue: #55d6ff;
-  --purple: #a78bfa;
-  --white: #f1f5ff;
+  --bg:#06150f; --forest:#0c2b1d; --emerald:#087f5b; --bright:#55d99a;
+  --mint:#b8f3d0; --gold:#e6c77a; --cream:#fff8e8; --text:#e8f6ed;
 }
-
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  color: var(--white);
-  font-family: "Segoe UI", system-ui, sans-serif;
-  background:
-    radial-gradient(ellipse at 50% 40%, #132854 0%, transparent 48%),
-    radial-gradient(ellipse at 10% 90%, #24154c 0%, transparent 40%),
-    var(--bg);
-  overflow-x: hidden;
-}
-
-button { font: inherit; }
-
-.stars, #confetti {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.stars { z-index: 0; }
-#confetti { z-index: 10; }
-
-.app {
-  position: relative;
-  z-index: 1;
-  width: min(1100px, 100%);
-  margin: auto;
-  padding: 26px 22px 45px;
-}
-
-.top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  font-size: 12px;
-  color: #a8bddc;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.status {
-  color: #7df7c5;
-  letter-spacing: 1px;
-}
-
-.status::before {
-  content: "";
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  background: #7df7c5;
-  border-radius: 50%;
-  margin-right: 8px;
-  box-shadow: 0 0 12px #7df7c5;
-}
-
-header {
-  text-align: center;
-  padding: 55px 0 15px;
-}
-
-.eyebrow {
-  color: var(--blue);
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  font-size: 11px;
-}
-
-h1 {
-  margin: 17px 0 12px;
-  font-size: clamp(35px, 7vw, 72px);
-  line-height: 1.05;
-  letter-spacing: -2px;
-  background: linear-gradient(100deg, #fff, #83dfff, #c3a8ff, #fff);
-  background-size: 200% auto;
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-  animation: shine 6s linear infinite;
-}
-
-@keyframes shine {
-  to { background-position: 200% center; }
-}
-
-.subtitle {
-  color: #b5c5df;
-  font-size: 15px;
-  line-height: 1.8;
-}
-
-.layout {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr 1fr;
-  gap: 16px;
-  align-items: center;
-  margin-top: 22px;
-}
-
-.panel {
-  border: 1px solid #5273a344;
-  background: #0b1429b8;
-  border-radius: 16px;
-  padding: 18px;
-  box-shadow: inset 0 0 30px #19386c12;
-  backdrop-filter: blur(8px);
-}
-
-.panel-title {
-  color: var(--blue);
-  font-size: 10px;
-  letter-spacing: 2px;
-  margin-bottom: 18px;
-}
-
-.code {
-  color: #b6c8e8;
-  font: 12px/2 monospace;
-  overflow-wrap: anywhere;
-}
-
-.pink { color: #e8a8ff; }
-.green { color: #86efac; }
-.yellow { color: #fde68a; }
-
-.code .cursor {
-  display: inline-block;
-  width: 7px;
-  height: 13px;
-  vertical-align: middle;
-  background: var(--blue);
-  animation: blink 1s steps(2) infinite;
-}
-
-@keyframes blink {
-  50% { opacity: 0; }
-}
-
-.quote {
-  text-align: center;
-  color: #d5e2ff;
-  line-height: 1.9;
-  font-size: 13px;
-}
-
-.quote strong {
-  display: block;
-  color: var(--purple);
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.cake-area {
-  min-width: 0;
-  text-align: center;
-  padding: 24px 0;
-  position: relative;
-}
-
-.cake-label {
-  color: #b4c7e9;
-  font-size: 10px;
-  letter-spacing: 3px;
-  margin-bottom: 12px;
-}
-
-.glow {
-  position: absolute;
-  width: 220px;
-  height: 180px;
-  border-radius: 50%;
-  background: #398bff22;
-  filter: blur(40px);
-  left: 50%;
-  top: 48%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
-
-.cake {
-  position: relative;
-  height: 245px;
-  width: 250px;
-  max-width: 100%;
-  margin: auto;
-}
-
-.cake-shadow {
-  position: absolute;
-  width: 220px;
-  height: 22px;
-  left: 15px;
-  bottom: 18px;
-  background: #030714;
-  filter: blur(8px);
-  border-radius: 50%;
-}
-
-.plate {
-  position: absolute;
-  bottom: 20px;
-  left: 5px;
-  width: 240px;
-  height: 19px;
-  border-radius: 50%;
-  background: linear-gradient(#dceeff, #718fc4 45%, #24395f);
-  box-shadow: 0 0 23px #54cfff55;
-}
-
-.cake-bottom {
-  position: absolute;
-  bottom: 36px;
-  left: 25px;
-  width: 200px;
-  height: 69px;
-  border-radius: 8px 8px 15px 15px;
-  background: linear-gradient(90deg, #8c50df, #d18cff 48%, #7945c9);
-  box-shadow: inset 0 -12px 0 #542da6, inset 0 5px 0 #eacbff;
-}
-
-.cake-bottom::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: -7px;
-  height: 16px;
-  border-radius: 50%;
-  background: #e5bdff;
-}
-
-.cake-top {
-  position: absolute;
-  bottom: 98px;
-  left: 37px;
-  width: 176px;
-  height: 54px;
-  border-radius: 8px 8px 10px 10px;
-  background: linear-gradient(90deg, #f6a8e2, #ffdbf5 45%, #d97cc5);
-  box-shadow: inset 0 -9px 0 #d876bb;
-}
-
-.cake-top::before {
-  content: "";
-  position: absolute;
-  top: -7px;
-  left: 0;
-  width: 100%;
-  height: 17px;
-  border-radius: 50%;
-  background: #ffe7fa;
-}
-
-.drip {
-  position: absolute;
-  top: 7px;
-  width: 13px;
-  height: 21px;
-  background: #ffe7fa;
-  border-radius: 0 0 9px 9px;
-}
-
-.d1 { left: 27px; height: 17px; }
-.d2 { left: 65px; height: 26px; }
-.d3 { left: 120px; height: 19px; }
-.d4 { right: 15px; height: 25px; }
-
-.candle {
-  position: absolute;
-  z-index: 2;
-  width: 10px;
-  height: 48px;
-  bottom: 146px;
-  border-radius: 3px 3px 1px 1px;
-  background: repeating-linear-gradient(
-    135deg, #fff 0 5px, #54cfff 5px 10px
-  );
-}
-
-.c1 { left: 68px; height: 37px; }
-.c2 { left: 94px; height: 50px; }
-.c3 { left: 120px; height: 42px; }
-.c4 { left: 146px; height: 50px; }
-.c5 { left: 172px; height: 37px; }
-
-.flame {
-  position: absolute;
-  left: 1px;
-  top: -19px;
-  width: 8px;
-  height: 16px;
-  border-radius: 80% 10% 70% 40%;
-  transform: rotate(45deg);
-  background: #fff4a3;
-  box-shadow: 0 0 9px #ffcb52, 0 0 22px #ff9d36;
-  animation: flicker .45s ease-in-out infinite alternate;
-}
-
-@keyframes flicker {
-  to { transform: rotate(38deg) scale(.85); }
-}
-
-.flame.off { display: none; }
-
-.cake-off .cake-area {
-  filter: saturate(.8);
-}
-
-.message {
-  display: none;
-  margin: 22px auto 0;
-  padding: 23px;
-  max-width: 580px;
-  border: 1px solid #a78bfa66;
-  border-radius: 17px;
-  background: linear-gradient(140deg, #17264b, #11112b);
-  box-shadow: 0 0 40px #a78bfa12;
-  animation: appear .8s ease both;
-  text-align: left;
-}
-
-.message.show { display: block; }
-
-@keyframes appear {
-  from { opacity: 0; transform: translateY(15px) scale(.98); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-.message h2 {
-  color: #c9b6ff;
-  font-size: 23px;
-  margin-top: 0;
-}
-
-.message p {
-  color: #dce5fa;
-  font-size: 14px;
-  line-height: 1.9;
-}
-
-.signature {
-  color: var(--blue) !important;
-  margin-bottom: 0;
-}
-
-.controls {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 25px 0;
-}
-
-.btn {
-  cursor: pointer;
-  padding: 12px 17px;
-  border-radius: 10px;
-  border: 1px solid #6682b4;
-  color: #edf7ff;
-  background: #152442;
-  transition: .2s;
-  font-size: 13px;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-  border-color: var(--blue);
-  box-shadow: 0 0 20px #55d6ff24;
-}
-
-.btn.primary {
-  color: #06111e;
-  font-weight: 700;
-  background: linear-gradient(110deg, #73e1ff, #b9a2ff);
-  border: 0;
-}
-
-footer {
-  text-align: center;
-  color: #7186a9;
-  font-size: 11px;
-  letter-spacing: 1px;
-  margin-top: 35px;
-}
-
-.heart {
-  color: #f0a5ff;
-  display: inline-block;
-  animation: pulse 1.4s infinite;
-}
-
-@keyframes pulse {
-  50% { transform: scale(1.2); }
-}
-
-@media (max-width: 760px) {
-  .app { padding: 20px 16px 35px; }
-  header { padding-top: 42px; }
-  .layout { grid-template-columns: 1fr; }
-  .cake-area { order: -1; }
-  .panel { padding: 16px; }
-  .code { font-size: 11px; }
-  .quote { max-width: 340px; margin: auto; }
-  h1 { letter-spacing: -1px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-  }
-}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--text);font-family:"Segoe UI",system-ui,sans-serif;
+ background:radial-gradient(ellipse at 50% 38%,#12432d 0%,transparent 45%),radial-gradient(ellipse at 8% 90%,#102e20 0%,transparent 40%),var(--bg);overflow-x:hidden}
+button{font:inherit}
+.stars,#confetti{position:fixed;inset:0;width:100%;height:100%;pointer-events:none}
+.stars{z-index:0}#confetti{z-index:8}
+.app{position:relative;z-index:1;width:min(1000px,100%);margin:auto;padding:25px 22px 45px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;color:#a5cbb4;font-size:11px;letter-spacing:2px;text-transform:uppercase}
+.status{color:#79e6ad}.status:before{content:"";display:inline-block;width:7px;height:7px;background:#79e6ad;border-radius:50%;margin-right:8px;box-shadow:0 0 12px #79e6ad}
+header{text-align:center;padding:48px 0 10px}
+.eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:4px;font-size:11px}
+h1{margin:15px 0 12px;font-size:clamp(36px,7vw,68px);line-height:1.04;letter-spacing:-1.8px;background:linear-gradient(100deg,#fff8e8,#7de5ac,#e6c77a,#fff8e8);background-size:200% auto;color:transparent;background-clip:text;-webkit-background-clip:text;animation:shine 7s linear infinite}
+@keyframes shine{to{background-position:200% center}}
+.subtitle{color:#b8d6c2;font-size:15px;line-height:1.8}
+.layout{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:15px;align-items:center;margin-top:18px}
+.panel{border:1px solid #65bd8b35;background:#0a2119c9;border-radius:16px;padding:18px;box-shadow:inset 0 0 30px #3a9e6810;backdrop-filter:blur(8px)}
+.panel-title{color:var(--gold);font-size:10px;letter-spacing:2px;margin-bottom:16px}
+.code{color:#b9d7c3;font:12px/2 monospace;overflow-wrap:anywhere}.pink{color:#d6b5ff}.green{color:#8be7ae}.yellow{color:#f2d88e}
+.cursor{display:inline-block;width:7px;height:13px;vertical-align:middle;background:var(--bright);animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.quote{text-align:center;color:#d6e9dc;line-height:1.9;font-size:13px}
+.quote strong{display:block;color:var(--gold);font-size:18px;margin-bottom:10px;overflow-wrap:anywhere}
+.cake-area{min-width:0;text-align:center;padding:23px 0;position:relative}
+.cake-label{color:#b7d9c3;font-size:10px;letter-spacing:2.5px;margin:12px 0}
+.glow{position:absolute;width:240px;height:190px;border-radius:50%;background:#30c77a25;filter:blur(42px);left:50%;top:48%;transform:translate(-50%,-50%);pointer-events:none}
+.cake{position:relative;height:270px;width:290px;max-width:100%;margin:auto}
+.cake-shadow{position:absolute;width:245px;height:22px;left:22px;bottom:17px;background:#020a06;filter:blur(8px);border-radius:50%}
+.plate{position:absolute;bottom:19px;left:8px;width:274px;height:19px;border-radius:50%;background:linear-gradient(#f1f2d9,#a5c6a9 45%,#315b43);box-shadow:0 0 23px #70dba255;opacity:0;transform:translateY(15px);animation:build .65s .2s ease-out forwards}
+.cake-bottom{position:absolute;bottom:35px;left:28px;width:234px;height:76px;border-radius:9px 9px 16px 16px;background:linear-gradient(90deg,#075638,#149963 48%,#075638);box-shadow:inset 0 -12px 0 #06432d,inset 0 5px 0 #8de7b1;opacity:0;transform:translateY(25px) scale(.92);animation:build .75s .75s ease-out forwards}
+.cake-bottom:before{content:"";position:absolute;left:0;right:0;top:-7px;height:17px;border-radius:50%;background:#a6edc1}
+.cake-top{position:absolute;bottom:103px;left:42px;width:206px;height:55px;border-radius:8px 8px 11px 11px;background:linear-gradient(90deg,#2a9b69,#8be5ad 48%,#25875b);box-shadow:inset 0 -9px 0 #18784c;opacity:0;transform:translateY(20px) scale(.94);animation:build .7s 1.3s ease-out forwards}
+.cake-top:before{content:"";position:absolute;top:-7px;left:0;width:100%;height:17px;border-radius:50%;background:#d0f6d9}
+.drip{position:absolute;top:7px;width:13px;height:21px;background:#d0f6d9;border-radius:0 0 9px 9px}
+.d1{left:27px;height:17px}.d2{left:72px;height:26px}.d3{left:135px;height:19px}.d4{right:17px;height:25px}
+.candles{position:absolute;inset:0;z-index:3;pointer-events:none}
+.candle{position:absolute;width:5px;height:38px;bottom:151px;border-radius:3px 3px 1px 1px;background:repeating-linear-gradient(135deg,#fff8e8 0 4px,#d9b85f 4px 7px);opacity:0;transform:translateY(13px) scale(.8);animation:candleIn .35s ease-out forwards}
+@keyframes candleIn{to{opacity:1;transform:translateY(0) scale(1)}}
+.flame{position:absolute;left:0;top:-12px;width:5px;height:10px;border-radius:80% 10% 70% 40%;transform:rotate(45deg);background:#fff4a3;box-shadow:0 0 7px #ffcb52,0 0 14px #ff9d36;animation:flicker .45s ease-in-out infinite alternate;opacity:0}
+.flame.on{opacity:1}
+@keyframes flicker{to{transform:rotate(38deg) scale(.85)}}
+@keyframes build{to{opacity:1;transform:translateY(0) scale(1)}}
+.cake-number{position:absolute;bottom:44px;left:0;right:0;color:#e5d69d;font-size:12px;letter-spacing:4px;z-index:4}
+.envelope-wrap{max-width:570px;margin:18px auto 0;text-align:center}
+.envelope-hint{color:#b8d6c2;font-size:12px;line-height:1.7;margin:12px 0}
+.envelope-button{display:block;position:relative;width:min(300px,90%);height:174px;margin:14px auto 0;padding:0;border:0;background:transparent;cursor:pointer;perspective:800px}
+.envelope{position:absolute;inset:18px 8px 7px;background:#0d6848;border:1px solid #8bd9a9;border-radius:5px;box-shadow:0 12px 35px #0006;overflow:visible}
+.envelope:before{content:"";position:absolute;inset:0;background:linear-gradient(140deg,transparent 49.5%,#1a8b60 50%),linear-gradient(220deg,transparent 49.5%,#126d4b 50%);z-index:2;clip-path:polygon(0 100%,50% 42%,100% 100%)}
+.flap{position:absolute;top:0;left:0;width:100%;height:60%;background:#25a16c;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .75s ease;z-index:4;filter:drop-shadow(0 3px 3px #052b1b55)}
+.seal{position:absolute;z-index:5;left:50%;top:53%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--gold);color:#16432d;font-size:18px;box-shadow:0 2px 10px #06281977;transition:opacity .25s}
+.letter-paper{position:absolute;z-index:1;left:7%;right:7%;bottom:7px;height:135px;overflow:hidden;background:var(--cream);color:#234433;border-radius:4px;padding:18px 16px;text-align:left;transition:transform .8s ease,height .8s ease,bottom .8s ease;box-shadow:0 0 14px #0002}
+.letter-paper .paper-title{text-align:center;color:#176c48;font-family:Georgia,serif;font-size:17px;margin:0 0 8px}
+.letter-paper .paper-preview{font-family:Georgia,serif;font-size:10px;line-height:1.5;text-align:center;color:#52715c}
+.envelope-button.open .flap{transform:rotateX(180deg);z-index:0}
+.envelope-button.open .seal{opacity:0}
+.envelope-button.open .letter-paper{height:min(360px,58vh);bottom:30px;transform:translateY(-58px);z-index:6;overflow-y:auto}
+.envelope-button.open{height:225px}
+.letter-full{display:none;font-family:Georgia,serif;font-size:12px;line-height:1.65;color:#244634;text-align:left}
+.envelope-button.open .letter-full{display:block}
+.envelope-button.open .paper-preview{display:none}
+.letter-full p{margin:0 0 12px}.letter-full .signoff{font-weight:bold;color:#176c48}
+.letter-note{color:#d7eadd;font-size:12px;line-height:1.7;margin:12px auto;max-width:520px}
+.controls{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin:24px 0}
+.btn{cursor:pointer;padding:11px 16px;border-radius:10px;border:1px solid #5f9f78;color:#edf9f0;background:#102d20;transition:.2s;font-size:13px}
+.btn:hover{transform:translateY(-2px);border-color:var(--bright);box-shadow:0 0 20px #55d99a24}
+.btn.primary{color:#062015;font-weight:700;background:linear-gradient(110deg,#9aefb9,#e6c77a);border:0}
+footer{text-align:center;color:#769b82;font-size:10px;letter-spacing:1.5px;margin-top:34px;line-height:1.8}
+.heart{color:#e6c77a;display:inline-block;animation:pulse 1.4s infinite}
+@keyframes pulse{50%{transform:scale(1.2)}}
+@keyframes appear{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:760px){.app{padding:19px 15px 32px}header{padding-top:38px}.layout{grid-template-columns:1fr}.cake-area{order:-1}.panel{padding:16px}.quote{max-width:420px;margin:auto}.code{font-size:11px}.envelope-button.open .letter-paper{height:min(390px,62vh)}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
 </style>
 </head>
-
 <body>
 <canvas class="stars" id="stars"></canvas>
 <canvas id="confetti"></canvas>
-
 <main class="app">
-  <div class="top">
-    <span>✦ Special.exe</span>
-    <span class="status">Surprise loaded</span>
-  </div>
-
+  <div class="top"><span>✦ Special.exe</span><span class="status">Sorpresa preparada</span></div>
   <header>
-    <div class="eyebrow">A little something just for you</div>
-    <h1>Happy Birthday,<br>Ingeniero ✦</h1>
-    <p class="subtitle">
-      Hoy el universo tiene una actualización especial.<br>
-      Y esta vez, el protagonista sos vos.
-    </p>
+    <div class="eyebrow">Un detalle hecho especialmente para vos</div>
+    <h1>¡Feliz cumpleaños!<br>💚</h1>
+    <p class="subtitle">Hoy el universo tiene una actualización especial.<br>Y esta vez, el protagonista sos vos.</p>
   </header>
 
   <section class="layout">
@@ -460,162 +100,186 @@ footer {
       <div class="panel-title">// BIRTHDAY.JS</div>
       <div class="code">
         <span class="pink">const</span> birthday = {<br>
-        &nbsp; occasion: <span class="green">"special"</span>,<br>
         &nbsp; happiness: <span class="yellow">Infinity</span>,<br>
-        &nbsp; wishes: <span class="green">"all of them"</span>,<br>
-        &nbsp; bugs: <span class="yellow">0</span>,<br>
-        &nbsp; dreams: <span class="green">"unlimited"</span><br>
+        &nbsp; wishes: <span class="green">"todos"</span>,<br>
+        &nbsp; worries: <span class="yellow">0</span>,<br>
+        &nbsp; dreams: <span class="green">"sin límites"</span><br>
         };<br><br>
         <span class="pink">function</span> celebrate() {<br>
-        &nbsp; return <span class="green">"You deserve it!"</span>;<br>
+        &nbsp; return <span class="green">"Te lo merecés"</span>;<br>
         }<br><br>
         <span class="pink">while</span> (today.isBirthday) {<br>
         &nbsp; smile();<br>
         &nbsp; makeAWish();<br>
-        }<br>
-        <span class="cursor"></span>
+        }<br><span class="cursor"></span>
       </div>
     </aside>
 
     <div class="cake-area">
       <div class="glow"></div>
-      <div class="cake-label">✧ MAKE A WISH ✧</div>
+      <div class="cake-label">✧ UN DESEO PARA VOS ✧</div>
       <div class="cake" id="cake">
         <div class="cake-shadow"></div>
         <div class="plate"></div>
         <div class="cake-bottom"></div>
         <div class="cake-top">
-          <i class="drip d1"></i>
-          <i class="drip d2"></i>
-          <i class="drip d3"></i>
-          <i class="drip d4"></i>
+          <i class="drip d1"></i><i class="drip d2"></i>
+          <i class="drip d3"></i><i class="drip d4"></i>
         </div>
-        <div class="candle c1"><i class="flame"></i></div>
-        <div class="candle c2"><i class="flame"></i></div>
-        <div class="candle c3"><i class="flame"></i></div>
-        <div class="candle c4"><i class="flame"></i></div>
-        <div class="candle c5"><i class="flame"></i></div>
+        <div class="candles" id="candles"></div>
+        <div class="cake-number">28 AÑOS</div>
       </div>
-      <div class="cake-label">✦ YOUR DAY · YOUR MOMENT ✦</div>
+      <div class="cake-label">✦ 28 VELITAS · MUCHOS DESEOS ✦</div>
     </div>
 
     <aside class="panel quote">
-      <div class="panel-title">// A LITTLE REMINDER</div>
+      <div class="panel-title">// UN RECORDATORIO</div>
       <strong>01001000 01100001 01110000 01110000 01111001</strong>
       Cada nuevo año es una nueva oportunidad de crear algo increíble.
-      <br><br>
-      <span style="color:#55d6ff">Tu próxima versión promete mucho.</span>
-      <br><br>
-      <span style="color:#a78bfa">System.out.println("Celebrate!");</span>
+      <br><br><span style="color:#8be7ae">Tu próxima versión promete mucho.</span>
+      <br><br><span style="color:#e6c77a">System.out.println("¡Celebrá!");</span>
     </aside>
   </section>
 
-  <div class="controls">
-    <button class="btn primary" id="lightBtn">✦ Encender las velas</button>
-    <button class="btn" id="wishBtn">✧ Lanzar confeti</button>
-    <button class="btn" id="letterBtn">♡ Abrir tu carta</button>
-  </div>
-
-  <section class="message" id="message" aria-live="polite">
-    <h2>Una felicitación para vos ✨</h2>
-    <p>
-      Hoy no quería dejar pasar la oportunidad de desearte un cumpleaños
-      muy bonito. Espero que este nuevo año de vida venga lleno de
-      oportunidades, aprendizajes, proyectos que te emocionen y metas
-      que poco a poco se conviertan en realidad.
-    </p>
-    <p>
-      Que nunca te falten motivos para seguir creciendo, personas que
-      valoren lo que sos y momentos que te recuerden lo mucho que vale
-      la pena todo el esfuerzo que hacés. Ojalá la vida también te
-      sorprenda con cosas bonitas cuando menos lo esperés.
-    </p>
-    <p>
-      Te deseo muchísima felicidad en esta nueva etapa. Que todos esos
-      sueños que todavía están en fase de desarrollo encuentren la
-      oportunidad perfecta para hacerse realidad.
-    </p>
-    <p class="signature">
-      Feliz cumpleaños, Ingeniero. Que tu siguiente capítulo sea
-      extraordinario. <span class="heart">♥</span>
-    </p>
+  <section class="envelope-wrap" aria-label="Carta de cumpleaños">
+    <div class="envelope-hint" id="hint">El pastel se está preparando…<br>Cuando termine, tocá el sobre para abrir tu carta.</div>
+    <button class="envelope-button" id="envelopeButton" type="button" aria-label="Abrir la carta de cumpleaños" aria-expanded="false">
+      <span class="envelope"></span>
+      <span class="letter-paper">
+        <span class="paper-title">Para mi hermano 💚</span>
+        <span class="paper-preview">Hay cosas que no siempre digo en voz alta…<br>pero hoy quiero que las leás.</span>
+        <span class="letter-full">
+          <p>A veces no sé cómo explicarte lo mucho que significás para mí, pero quiero que sepás que tenerte como hermano es una de las cosas más bonitas de mi vida. Gracias por apoyarme, por creer en mí, por estar cuando te necesito y por hacerme sentir que no tengo que enfrentar todo sola. Tal vez no te lo diga seguido, pero muchas de las cosas que logro y la fuerza que tengo también vienen de saber que cuento con vos. Y aunque a veces no te lo demuestre como debería, valoro cada cosa que hacés por mí más de lo que imaginás.</p>
+          <p>Hoy cumplís 28 años y mi deseo más grande es que la vida te devuelva todo lo bueno que has dado, que nunca te falten motivos para ser feliz y que, incluso en los días difíciles, recordés lo mucho que valés y lo capaz que sos de lograr todo lo que te propongás. Quiero verte cumplir tus sueños, verte orgulloso de la persona en la que te convertís y poder estar ahí para celebrar cada uno de tus logros, así como vos has estado para mí. No sé qué nos tenga preparado la vida, pero espero que nunca nos falten momentos para compartir y que siempre tengás presente que, pase lo que pase, vas a tener en mí a alguien que te quiere, te admira y desea verte bien. <span class="signoff">Feliz cumpleaños, hermano. Te quiero muchísimo, y qué suerte la mía que me haya tocado ser tu hermana. 💚</span></p>
+        </span>
+      </span>
+      <span class="flap"></span><span class="seal">♥</span>
+    </button>
+    <p class="letter-note" id="letterNote">Una carta hecha con todo mi cariño. 💚</p>
   </section>
 
-  <footer>
-    MADE WITH <span class="heart">♥</span> AND A LITTLE BIT OF CODE
-    <br><br>
-    <span>/* Today, the world celebrates you. */</span>
-  </footer>
+  <div class="controls">
+    <button class="btn primary" id="lightBtn" type="button">✦ Encender las 28 velitas</button>
+    <button class="btn" id="wishBtn" type="button">✧ Lanzar confeti</button>
+    <button class="btn" id="letterBtn" type="button">♡ Abrir tu carta</button>
+  </div>
+
+  <footer>HECHO CON <span class="heart">♥</span> Y UN POQUITO DE CÓDIGO<br><br><span>/* Hoy celebramos que existís. */</span></footer>
 </main>
 
 <script>
-const $ = (selector) => document.querySelector(selector);
+const $ = selector => document.querySelector(selector);
+const candlesBox = $("#candles"), lightBtn = $("#lightBtn");
+const envelopeButton = $("#envelopeButton"), letterBtn = $("#letterBtn");
+const hint = $("#hint"), letterNote = $("#letterNote");
+let lit = false, animationFinished = false, opened = false;
 
-const flames = document.querySelectorAll(".flame");
-const lightBtn = $("#lightBtn");
-const wishBtn = $("#wishBtn");
-const letterBtn = $("#letterBtn");
-const message = $("#message");
+// Crea exactamente 28 velitas, distribuidas en dos filas.
+const candlePositions = [];
+for (let i = 0; i < 14; i++) candlePositions.push({x: 32 + i * 16.1, y: 0});
+for (let i = 0; i < 14; i++) candlePositions.push({x: 43 + i * 14.5, y: 19});
 
-let lit = true;
+candlePositions.forEach((pos, i) => {
+  const candle = document.createElement("span");
+  candle.className = "candle";
+  candle.style.left = pos.x + "px";
+  candle.style.bottom = (pos.y ? 151 - pos.y : 151) + "px";
+  candle.style.animationDelay = (1.95 + i * .075) + "s";
+  candle.dataset.index = i;
+
+  const flame = document.createElement("i");
+  flame.className = "flame";
+  flame.style.animationDelay = (i * .035) + "s";
+  candle.appendChild(flame);
+  candlesBox.appendChild(candle);
+});
+
+const allFlames = () => document.querySelectorAll(".flame");
+
+function lightCandles() {
+  lit = true;
+  allFlames().forEach((flame, i) => {
+    setTimeout(() => flame.classList.add("on"), i * 65);
+  });
+  lightBtn.textContent = "✦ Apagar las 28 velitas";
+  $("#cake").style.filter = "";
+}
+
+function extinguishCandles() {
+  lit = false;
+  allFlames().forEach(flame => flame.classList.remove("on"));
+  lightBtn.textContent = "✦ Encender las 28 velitas";
+  $("#cake").style.filter = "brightness(.78)";
+}
 
 lightBtn.addEventListener("click", () => {
-  lit = !lit;
-  flames.forEach(flame => flame.classList.toggle("off", !lit));
-  lightBtn.textContent = lit
-    ? "✦ Apagar las velas"
-    : "✦ Encender las velas";
-
-  if (!lit) {
-    $("#cake").style.filter = "brightness(.78)";
-  } else {
-    $("#cake").style.filter = "";
-    burst(window.innerWidth / 2, window.innerHeight * .48, 45);
+  if (!animationFinished) return;
+  if (lit) extinguishCandles();
+  else {
+    lightCandles();
+    burst(innerWidth / 2, innerHeight * .44, 55);
   }
 });
 
-letterBtn.addEventListener("click", () => {
-  const opening = !message.classList.contains("show");
-  message.classList.toggle("show", opening);
-  letterBtn.textContent = opening ? "♡ Cerrar tu carta" : "♡ Abrir tu carta";
+function finishCakeAnimation() {
+  if (animationFinished) return;
+  animationFinished = true;
+  hint.innerHTML = "Las 28 velitas ya están listas. 💚<br>Tocá el sobre para descubrir tu carta.";
+  lightCandles();
+  envelopeButton.classList.add("ready");
+  envelopeButton.style.animation = "appear .8s ease both";
+  burst(innerWidth / 2, innerHeight * .42, 45);
+}
 
-  if (opening) {
-    message.scrollIntoView({ behavior: "smooth", block: "center" });
-    burst(window.innerWidth / 2, window.innerHeight * .55, 70);
+// Espera a que el pastel y las velitas se hayan armado.
+setTimeout(finishCakeAnimation, 3900);
+
+function toggleLetter() {
+  if (!animationFinished) {
+    hint.textContent = "Un poquito de paciencia… el pastel se está preparando. 💚";
+    return;
   }
-});
 
-wishBtn.addEventListener("click", () => {
+  opened = !opened;
+  envelopeButton.classList.toggle("open", opened);
+  envelopeButton.setAttribute("aria-expanded", String(opened));
+  letterBtn.textContent = opened ? "♡ Cerrar tu carta" : "♡ Abrir tu carta";
+  hint.textContent = opened ? "Con cariño, para vos. 💚" : "Tocá el sobre para descubrir tu carta.";
+  letterNote.style.display = opened ? "none" : "block";
+
+  if (opened) {
+    setTimeout(() => envelopeButton.scrollIntoView({behavior:"smooth",block:"center"}), 200);
+    burst(innerWidth / 2, innerHeight * .58, 65);
+  }
+}
+
+envelopeButton.addEventListener("click", toggleLetter);
+letterBtn.addEventListener("click", toggleLetter);
+
+$("#wishBtn").addEventListener("click", () => {
   for (let i = 0; i < 5; i++) {
-    setTimeout(() => {
-      burst(
-        Math.random() * window.innerWidth,
-        Math.random() * window.innerHeight * .7,
-        45
-      );
-    }, i * 180);
+    setTimeout(() => burst(Math.random()*innerWidth,Math.random()*innerHeight*.7,40),i*160);
   }
 });
 
 // Fondo de estrellas
-const starsCanvas = $("#stars");
-const sctx = starsCanvas.getContext("2d");
+const starsCanvas = $("#stars"), sctx = starsCanvas.getContext("2d");
 let stars = [];
 
 function resizeStars() {
-  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  const dpr = Math.min(devicePixelRatio || 1, 2);
   starsCanvas.width = innerWidth * dpr;
   starsCanvas.height = innerHeight * dpr;
   starsCanvas.style.width = innerWidth + "px";
   starsCanvas.style.height = innerHeight + "px";
   sctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-  stars = Array.from({ length: Math.min(130, Math.floor(innerWidth / 5)) }, () => ({
-    x: Math.random() * innerWidth,
-    y: Math.random() * innerHeight,
-    r: Math.random() * 1.5 + .3,
-    a: Math.random(),
-    speed: Math.random() * .008 + .002
+  stars = Array.from({length:Math.min(120,Math.floor(innerWidth/5))}, () => ({
+    x:Math.random()*innerWidth,
+    y:Math.random()*innerHeight,
+    r:Math.random()*1.4+.3,
+    a:Math.random(),
+    speed:Math.random()*.008+.002
   }));
 }
 
@@ -623,10 +287,10 @@ function drawStars() {
   sctx.clearRect(0, 0, innerWidth, innerHeight);
   stars.forEach(s => {
     s.a += s.speed;
-    const opacity = .25 + (Math.sin(s.a) + 1) * .32;
+    const opacity = .22 + (Math.sin(s.a)+1)*.3;
     sctx.beginPath();
-    sctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-    sctx.fillStyle = `rgba(157,211,255,${opacity})`;
+    sctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+    sctx.fillStyle = `rgba(163,235,188,${opacity})`;
     sctx.fill();
   });
   requestAnimationFrame(drawStars);
@@ -637,13 +301,11 @@ drawStars();
 window.addEventListener("resize", resizeStars);
 
 // Confeti sin librerías externas
-const confettiCanvas = $("#confetti");
-const cctx = confettiCanvas.getContext("2d");
-let pieces = [];
-let confettiFrame = null;
+const confettiCanvas = $("#confetti"), cctx = confettiCanvas.getContext("2d");
+let pieces = [], confettiFrame = null;
 
 function resizeConfetti() {
-  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  const dpr = Math.min(devicePixelRatio || 1, 2);
   confettiCanvas.width = innerWidth * dpr;
   confettiCanvas.height = innerHeight * dpr;
   confettiCanvas.style.width = innerWidth + "px";
@@ -655,20 +317,20 @@ resizeConfetti();
 window.addEventListener("resize", resizeConfetti);
 
 function burst(x, y, amount = 60) {
-  const colors = ["#55d6ff", "#a78bfa", "#ff9fe7", "#ffe69a", "#ffffff"];
+  const colors = ["#55d99a","#e6c77a","#b8f3d0","#ffffff","#168b5e"];
 
   for (let i = 0; i < amount; i++) {
-    const angle = Math.random() * Math.PI * 2;
-    const speed = 2 + Math.random() * 6;
+    const angle = Math.random()*Math.PI*2;
+    const speed = 2+Math.random()*6;
     pieces.push({
-      x, y,
-      vx: Math.cos(angle) * speed,
-      vy: Math.sin(angle) * speed - 2,
-      size: 3 + Math.random() * 5,
-      color: colors[Math.floor(Math.random() * colors.length)],
-      life: 70 + Math.random() * 50,
-      rotation: Math.random() * 6,
-      spin: (Math.random() - .5) * .2
+      x,y,
+      vx:Math.cos(angle)*speed,
+      vy:Math.sin(angle)*speed-2,
+      size:3+Math.random()*5,
+      color:colors[Math.floor(Math.random()*colors.length)],
+      life:70+Math.random()*50,
+      rotation:Math.random()*6,
+      spin:(Math.random()-.5)*.2
     });
   }
 
@@ -676,8 +338,7 @@ function burst(x, y, amount = 60) {
 }
 
 function animateConfetti() {
-  cctx.clearRect(0, 0, innerWidth, innerHeight);
-
+  cctx.clearRect(0,0,innerWidth,innerHeight);
   pieces = pieces.filter(p => p.life > 0);
 
   pieces.forEach(p => {
@@ -689,26 +350,23 @@ function animateConfetti() {
     p.life--;
 
     cctx.save();
-    cctx.translate(p.x, p.y);
+    cctx.translate(p.x,p.y);
     cctx.rotate(p.rotation);
-    cctx.globalAlpha = Math.min(1, p.life / 20);
+    cctx.globalAlpha = Math.min(1,p.life/20);
     cctx.fillStyle = p.color;
-    cctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * .65);
+    cctx.fillRect(-p.size/2,-p.size/2,p.size,p.size*.65);
     cctx.restore();
   });
 
   if (pieces.length) {
     confettiFrame = requestAnimationFrame(animateConfetti);
   } else {
-    cctx.clearRect(0, 0, innerWidth, innerHeight);
+    cctx.clearRect(0,0,innerWidth,innerHeight);
     confettiFrame = null;
   }
 }
 
-// Una pequeña celebración al entrar
-setTimeout(() => {
-  burst(innerWidth / 2, innerHeight * .36, 35);
-}, 900);
+setTimeout(() => burst(innerWidth/2,innerHeight*.35,30),800);
 </script>
 </body>
 </html>
